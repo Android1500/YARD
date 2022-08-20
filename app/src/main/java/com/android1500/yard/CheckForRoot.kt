@@ -6,7 +6,7 @@ import com.scottyab.rootbeer.RootBeer
 class CheckForRoot(context : Context) {
     private val rootBeer = RootBeer(context)
        operator fun invoke(): List<RootItemResult> = getRootResults()
-       private external fun getXposedStat() :Int
+
 
     private fun getRootResults() = listOf(
         RootItemResult("Root Management Apps", rootBeer.detectRootManagementApps()),
@@ -19,19 +19,8 @@ class CheckForRoot(context : Context) {
         RootItemResult("For RW Paths", rootBeer.checkForRWPaths()),
         RootItemResult("Dangerous Props", rootBeer.checkForDangerousProps()),
         RootItemResult("Root via native check", rootBeer.checkForRootNative()),
-        RootItemResult("Xposed Detect", isXposed()),
         RootItemResult("Magisk specific checks", rootBeer.checkForMagiskBinary())
     )
-    private fun isXposed(): Boolean {
-        return when (getXposedStat()) {
-            0 -> return false
-            1 -> return true
-            2 -> return true
-            else -> {
-                return false
-            }
-        }
-    }
 
 
 }
