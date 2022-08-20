@@ -14,7 +14,6 @@ import kotlinx.coroutines.GlobalScope
 class RootItemAdapter : RecyclerView.Adapter<RootItemAdapter.RootItemVH>() {
     private val items: MutableList<RootItemResult> = mutableListOf()
 
-    @SuppressLint("NotifyDataSetChanged")
     fun update(results: List<RootItemResult>) {
         items.clear()
         items.addAll(results)
