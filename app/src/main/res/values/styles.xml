@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.AppCompat.Large.YARD" parent="TextAppearance.AppCompat.Large">
+        <item name="android:fontFamily">@font/google_sans_text_medium</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.ExtraLarge.YARD" parent="TextAppearance.AppCompat.Large">
+        <item name="android:fontFamily">@font/google_sans_text_medium</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Medium.YARD" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/google_sans_text_medium</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Small.YARD" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/google_sans_text_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Small.YARD.Medium" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/google_sans_text_medium</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.YARD" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Design.Hint.YARD</item>
+        <item name="fontFamily">@font/google_sans_text</item>
+        <item name="android:fontFamily">@font/google_sans_text</item>
+    </style>
+
+    <style name="TextAppearance.Design.Hint.YARD" parent="TextAppearance.Design.Hint">
+        <item name="fontFamily">@font/google_sans_text</item>
+        <item name="android:fontFamily">@font/google_sans_text</item>
+    </style>
+
+    <style name="Widget.Material3.CardView.Filled.TapTap" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+
+</resources>
