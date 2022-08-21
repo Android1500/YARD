@@ -4,7 +4,7 @@ import android.content.Context
 import com.scottyab.rootbeer.RootBeer
 
 class CheckForRoot(context : Context) {
-    private val rootBeer = RootBeer(context)
+       private val rootBeer = RootBeer(context)
        operator fun invoke(): List<RootItemResult> = getRootResults()
 
 

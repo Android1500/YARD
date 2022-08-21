@@ -4,17 +4,9 @@ package com.android1500.yard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android1500.yard.databinding.ActivityMainBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.scottyab.rootbeer.RootBeer
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +17,7 @@ class MainActivity : AppCompatActivity() {
          ActivityMainBinding.inflate(layoutInflater)
     }
     private val checkForRoot = CheckForRoot(this)
-    private val rootItemAdapter = RootItemAdapter()
+    private val rootItemAdapter = RootItemAdapter(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -54,10 +46,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun animateResults(results: List<RootItemResult>) {
         val multiplier = 10
-        val isRooted = results.any { it.result }
         lifecycleScope.launch {
             withContext(Dispatchers.IO){
-                results.forEachIndexed { index, rootItemResult ->
+                results.forEachIndexed { _, rootItemResult ->
                     for (i in 1..multiplier){
                         delay(50)
                         withContext(Dispatchers.Main){

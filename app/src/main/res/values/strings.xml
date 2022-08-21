@@ -2,4 +2,5 @@
     <string name="app_name">YARD</string>
     <string name="root_checks_5">Root Check</string>
     <string name="result_rooted">Rooted</string>
+    <string name="root_check">Root Check</string>
 </resources>

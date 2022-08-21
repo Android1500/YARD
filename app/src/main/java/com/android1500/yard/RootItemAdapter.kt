@@ -1,19 +1,19 @@
 package com.android1500.yard
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.rootcheck_view.view.*
-import kotlinx.coroutines.GlobalScope
 
-class RootItemAdapter : RecyclerView.Adapter<RootItemAdapter.RootItemVH>() {
+class RootItemAdapter(private val context: Context) : RecyclerView.Adapter<RootItemAdapter.RootItemVH>() {
+
     private val items: MutableList<RootItemResult> = mutableListOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun update(results: List<RootItemResult>) {
         items.clear()
         items.addAll(results)
@@ -21,14 +21,8 @@ class RootItemAdapter : RecyclerView.Adapter<RootItemAdapter.RootItemVH>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RootItemVH {
-        val inflater = LayoutInflater.from(parent.context)
-        return RootItemVH(
-            inflater.inflate(
-                R.layout.rootcheck_view,
-                parent,
-                false
-            )
-        )
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.rootcheck_view, parent, false)
+        return RootItemVH(view)
     }
 
     override fun getItemCount() = items.size
@@ -46,13 +40,24 @@ class RootItemAdapter : RecyclerView.Adapter<RootItemAdapter.RootItemVH>() {
         notifyDataSetChanged()
     }
 
-    class RootItemVH(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-        LayoutContainer {
+    inner class RootItemVH(containerView: View) : RecyclerView.ViewHolder(containerView){
+        private val text: TextView = containerView.findViewById(R.id.rootItemText)
+        private val resultIcon: ImageView = containerView.findViewById(R.id.rootItemResultIcon)
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         fun bind(item: RootItemResult) {
-            containerView.rootItemText.text = item.text
-            containerView.rootItemResultIcon.update(isRooted = item.result)
+            text.text = item.text
+             if (item.result){
+                 resultIcon.setImageDrawable(context.resources.getDrawable(R.drawable.ic_outline_cancel_24))
+            } else {
+                 resultIcon.setImageDrawable(context.resources.getDrawable(R.drawable.ic_baseline_check_circle_outline_24))
+
+            }
+
+
         }
     }
+
+
 }
 
