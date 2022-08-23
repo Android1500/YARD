@@ -6,6 +6,7 @@ import com.google.android.material.color.DynamicColors
 class App : Application() {
 
     init {
+        // Load native library
         System.loadLibrary("app")
     }
 
