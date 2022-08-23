@@ -18,9 +18,18 @@ android {
 
 
     }
+
     buildFeatures {
+        prefab true
         viewBinding true
     }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+        }
+    }
+
 
 
     buildTypes {
@@ -58,5 +67,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-service:2.5.1"
     implementation "androidx.work:work-runtime-ktx:2.7.1"
+
+    implementation 'io.github.vvb2060.ndk:xposeddetector:2.2'
 
 }
