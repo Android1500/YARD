@@ -12,7 +12,7 @@ Java_com_android1500_yard_CheckForRoot_getXposedStat(JNIEnv *env, jobject thiz) 
     return xposed_status != NO_XPOSED;
 }
 
-
+// Library initializer
 jint JNI_OnLoad(JavaVM *jvm, void *) {
 
     JNIEnv *env;

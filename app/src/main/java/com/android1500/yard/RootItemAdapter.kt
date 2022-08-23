@@ -13,13 +13,6 @@ class RootItemAdapter(private val context: Context) : RecyclerView.Adapter<RootI
 
     private val items: MutableList<RootItemResult> = mutableListOf()
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun update(results: List<RootItemResult>) {
-        items.clear()
-        items.addAll(results)
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RootItemVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rootcheck_view, parent, false)
         return RootItemVH(view)
